@@ -1,0 +1,103 @@
+*,*::after,*::before
+{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+} 
+body
+{
+    overflow: hidden;
+    background: #b0c0c1;
+    height:100vh;
+    width:100%;
+    display:grid;
+    place-items: center;
+
+
+}
+.container
+{
+    position:relative;
+    background-color: #b0c0c1;
+    color:#3c4a55;
+    width:10rem;
+    height:3.2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 1rem;
+    box-shadow:2px 2px 8px 1px #282828 ,
+    3px 3px 5px #565656,
+    2px 2px  #868686,
+    3px 3px #b6b6b6;
+    transition: transform 10s background-color 3s color 2s;
+
+    &::before{
+        content:'';
+        position:absolute;
+        width:1rem;
+        height:4rem;
+        background-color: #b0c0c1;
+        opacity:0.8;
+        border-radius: 10px;
+        transform-origin: center;
+        transform: rotate(-45deg) translate(5px,5px);
+        animation: beforehover1 1s linear infinite forwards
+
+    }
+    &::after{
+        content:'';
+        position:absolute;
+        width:1rem;
+        height:3.5rem;
+        background-color: #b0c0c1;
+        opacity:0.8;
+        border-radius: 10px;
+        transform-origin: center;
+        transform: rotate(-45deg) translate(-40px,-40px);
+        animation: beforehover2 1s linear infinite forwards
+
+    }
+    @keyframes  beforehover1{
+        from{
+            transform: rotate(-45deg) translate(5px, 5px);
+
+        }
+        to{
+            transform:  rotate(-45deg) translate(30px, 30px);
+        }
+        
+    }
+    @keyframes  beforehover2{
+        from{
+            transform: rotate(-45deg) translate(-40px, -40px);
+
+        }
+        to{
+            transform:  rotate(-45deg) translate(-10px, -10px);
+        }
+        
+    }
+
+    &:hover,
+    &:hover::before,
+    &:hover::after
+    {
+        animation-play-state: paused;
+        background-color: #8b9cb4;
+        color:#255692;
+    }
+    // &:hover
+    // {
+    //     transform: translateY(-10px);
+    // }
+    &:hover::before,
+    &:hover::after{
+        opacity:0;
+    }
+
+    
+    
+}
+
+
+
